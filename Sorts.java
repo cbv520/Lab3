@@ -5,9 +5,26 @@
 class Sorts
 {
     // bubble sort
-    public static void bubbleSort(int[] A)
+    public static int[] bubbleSort(int[] A)
     {
-        
+        boolean passed = true;
+        do
+        {
+            passed = true;
+            for(int i = 0; i < A.length - 1; i++)
+            {
+                if(A[i] > A[i + 1])
+                {
+                    int temp = A[i];
+                    A[i] = A[i + 1];
+                    A[i + 1] = temp;
+                    passed = false;
+                }
+            }
+        }
+        while(!passed);
+
+        return A;
     }//bubbleSort()
 
     // selection sort
