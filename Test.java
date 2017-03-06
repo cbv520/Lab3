@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Test
 {
-    public static void main(String args[])
+    public static void main(String args[]) throws Exception
     {
         int[] a = new int[300];
         int[] z;
@@ -14,7 +14,7 @@ public class Test
         }
 
         z = Arrays.copyOf(a, a.length);
-        Sorts.insertionSort(z);
+        Sorts.mergeSort(z);
 
         for(int i = 0; i < a.length; i++)
         {
