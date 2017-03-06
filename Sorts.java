@@ -5,9 +5,9 @@
 class Sorts
 {
     // bubble sort
-    public static int[] bubbleSort(int[] A)
+    public static void bubbleSort(int[] A)
     {
-        boolean passed = true;
+        boolean passed;
         do
         {
             passed = true;
@@ -23,8 +23,6 @@ class Sorts
             }
         }
         while(!passed);
-
-        return A;
     }//bubbleSort()
 
     // selection sort
