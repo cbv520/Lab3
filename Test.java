@@ -8,16 +8,15 @@ public class Test
         int[] z;
         Random r = new Random();
 
-        for(int i = 0; i < 300; i++)
+        for(int i = 0; i < a.length; i++)
         {
             a[i] = r.nextInt(99) + 1;
         }
 
-        //z = Sorts.bubbleSort(a);
-        z = Arrays.copyOf(a, 300);
-        Sorts.bubbleSort(z);
+        z = Arrays.copyOf(a, a.length);
+        Sorts.mergeSort(z);
 
-        for(int i = 0; i < 300; i++)
+        for(int i = 0; i < a.length; i++)
         {
             System.out.printf("%-2d    %-2d\n", a[i], z[i]);
         }
