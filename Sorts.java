@@ -33,6 +33,18 @@ class Sorts
     // insertion sort
     public static void insertionSort(int[] A)
     {
+        int i;
+        for(int n = 1; n < A.length; n++)
+        {
+            i = n;
+            int temp = A[i];
+            while((i > 0) && (A[i - 1] > temp))
+            {
+                A[i] = A[i - 1];
+                i--;
+            } 
+            A[i] = temp;  
+        }
     }// insertionSort()
 
     // mergeSort - front-end for kick-starting the recursive algorithm
