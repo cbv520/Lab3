@@ -50,12 +50,48 @@ class Sorts
     // mergeSort - front-end for kick-starting the recursive algorithm
     public static void mergeSort(int[] A)
     {
+    
     }//mergeSort()
     private static void mergeSortRecurse(int[] A, int leftIdx, int rightIdx)
     {
+        int midIdx;
+        if(leftIdx < rightIdx)
+        {
+            midIdx = (leftIdx + rightIdx)/2;
+            mergeSortRecurse(A, leftIdx, midIdx);
+            mergeSortRecurse(A, midIdx + 1, rightIdx);
+
+            merge(A, leftIdx, midIdx, rightIdx);
+            
+        }
     }//mergeSortRecurse()
     private static void merge(int[] A, int leftIdx, int midIdx, int rightIdx)
     {
+        int[] temp = new int[rightIdx - leftIdx + 1];
+        int i = leftIdx;
+        int j = rightIdx;
+        int k = 0;
+
+        while((i <= midIdx) && j <= rightIdx)
+        {
+            if(A[i] <= A[j])
+            {
+                temp[k] = A[i];
+                i++;
+            }
+            else
+            {
+                temp[k] = A[j];
+                j++;
+            }
+            k++;
+
+            for()
+            {
+                
+            }
+            
+        }
     }//merge()
 
 
