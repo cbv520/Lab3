@@ -14,7 +14,7 @@ public class Test
         }
 
         z = Arrays.copyOf(a, a.length);
-        Sorts.mergeSort(z);
+        Sorts.quickSort(z);
 
         for(int i = 0; i < a.length; i++)
         {

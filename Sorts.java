@@ -2,8 +2,6 @@
 ** Software Technology 152
 ** Class to hold various static sort methods.
 */
-import java.io.*;
-
 class Sorts
 {
     // bubble sort
@@ -123,13 +121,41 @@ class Sorts
     // quickSort - front-end for kick-starting the recursive algorithm
     public static void quickSort(int[] A)
     {
+        quickSortRecurse(A, 0, A.length - 1);
     }//quickSort()
     private static void quickSortRecurse(int[] A, int leftIdx, int rightIdx)
     {
+        if(rightIdx > leftIdx)
+        {
+            int pivotIdx = (rightIdx + leftIdx) /2;
+            int newPivotIdx = doPartitioning(A, leftIdx, rightIdx, pivotIdx);
+
+            quickSortRecurse(A, leftIdx, newPivotIdx - 1);
+            quickSortRecurse(A, newPivotIdx + 1, rightIdx);
+        }
     }//quickSortRecurse()
     private static int doPartitioning(int[] A, int leftIdx, int rightIdx, int pivotIdx)
     {
-		return 0;	// TEMP - Replace this when you implement QuickSort
+		int pivotVal = A[pivotIdx];
+        A[pivotIdx] = A[rightIdx];
+        A[rightIdx] = pivotVal;
+
+        int currentIdx = leftIdx;
+        for(int i = leftIdx; i < rightIdx; i++)
+        {
+            if(A[i] < pivotVal)
+            {
+                int temp = A[i];
+                A[i] = A[currentIdx];
+                A[currentIdx] = temp;
+                currentIdx++;
+            }
+        }
+        int newPivotIdx = currentIdx;
+        A[rightIdx] = A[newPivotIdx];
+        A[newPivotIdx] = pivotVal;
+
+        return newPivotIdx;
     }//doPartitioning
 
 
