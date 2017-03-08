@@ -31,20 +31,23 @@ runEm()
 }
 
 
-for sorts in br ir mr qr bn in mn qn ba ia ma qa bd id md qd; do
+for sorts in br ir sr mr qr bn in sn mn qn ba ia sa ma qa bd id sd md qd; do
+    echo sorting ${sorts}..
     tempFile="${sorts}.dat"
     runEm > $tempFile
 done
 
 for a in r n a d; do
 gnuplot <<EOF
-    set term png 
-    set output "b${a}.png" 
+    set term png
+    set output "b${a}.png"
     plot"b${a}.dat" using 2:3 t "b${a}" w l, \
         "i${a}.dat" using 2:3 t "i${a}" w l, \
+        "s${a}.dat" using 2:3 t "s${a}" w l, \
         "m${a}.dat" using 2:3 t "m${a}" w l, \
         "q${a}.dat" using 2:3 t "q${a}" w l
 EOF
+echo $a array png created
 done
 
 rm *.dat
