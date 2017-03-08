@@ -40,7 +40,7 @@ done
 for a in r n a d; do
 gnuplot <<EOF
     set term png
-    set output "b${a}.png"
+    set output "${a}.png"
     plot"b${a}.dat" using 2:3 t "b${a}" w l, \
         "i${a}.dat" using 2:3 t "i${a}" w l, \
         "s${a}.dat" using 2:3 t "s${a}" w l, \
